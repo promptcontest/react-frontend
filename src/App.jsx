@@ -1,20 +1,19 @@
 
 import React from 'react';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from './components/Login';
+// import Login from './components/Login';
+import Header from './components/Header';
 // import HomePage from './components/HomePage';
 import { AuthProvider } from './context/AuthContext';
+import Challenge from './components/Challenge';
+import Submissions from './components/Submissions';
 
 function App() {
   return (
     <AuthProvider>
-        <Login />
-      {/* <Router>
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route path="/" component={HomePage} />
-        </Switch>
-      </Router> */}
+        <Header />
+        <Challenge/>
+        <Submissions/>
     </AuthProvider>
   );
 }
