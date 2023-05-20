@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { fetchContestImage, fetchChallenge } from 'api';
-import { IChallenge, IContestImage } from 'api/types';
+import { IChallenge, IChallengeImage } from 'api/types';
 import {IContext, ICtxProps} from './types';
 
 export const DataContext = React.createContext<IContext>({
@@ -11,7 +11,7 @@ export const DataContext = React.createContext<IContext>({
 
 export const DataProvider: React.FC<ICtxProps> = ({ children }) => {
   const [ChallengeData, setChallengeData] = useState<IChallenge | null>(null);
-  const [ImagesData, setImagesData] = useState<IContestImage[]>([]);
+  const [ImagesData, setImagesData] = useState<IChallengeImage[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

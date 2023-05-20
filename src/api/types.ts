@@ -9,7 +9,7 @@ type PreferenceStats = {
 }
     
 
-export interface IContestImage {
+export interface IChallengeImage {
     id: number;
     url: string;
     userId: number;

@@ -2,7 +2,13 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}",],
   safelist: [],
+  plugins: [],
   theme: {
+    extend: {
+      gridTemplateColumns: {
+        'auto-fill': 'repeat(auto-fill, minmax(400px, 1fr))',
+      }
+    },
     fontFamily: {
       inter: ['Inter', 'sans-serif'],
     },

@@ -1,4 +1,4 @@
-import { IChallenge, IContestImage } from 'api/types';
+import { IChallenge, IChallengeImage } from 'api/types';
 import { User } from 'firebase/auth';
 
 export interface ICtxProps {
@@ -7,7 +7,7 @@ export interface ICtxProps {
   
 export interface IContext {
     challengeData: IChallenge | null;
-    imagesData: IContestImage[];
+    imagesData: IChallengeImage[];
 }
 
 export interface IAuthContext {
