@@ -59,7 +59,7 @@ export const fetchContestImage = async (limit?: number, offset?: number): Promis
             let shuffled = mockedData
                 .map(value => ({ value, sort: Math.random() }))
                 .sort((a, b) => a.sort - b.sort)
-                .map(({ value }) => value)
+                .map(({ value }, idx) => ({...value, ...{id: idx + 1}}))
       
             const contestImages: IChallengeImage[] = shuffled as IChallengeImage[];
             
@@ -77,12 +77,13 @@ export const fetchChallenge = async (): Promise<IChallenge> => {
     return new Promise<IChallenge> ((resolve, reject) => {
         setTimeout(() => {
             // Simulated mocked data
+
             const mockedData: any = {
                 id: 1,
                 title: 'Transparent design',
                 description: 'Description 1',
                 startDate: new Date(),
-                endDate: new Date()
+                endDate: new Date(new Date().getTime() + 60 * 60 * 24 * 1000)
             }
       
             const contest: IChallenge = mockedData as IChallenge;
