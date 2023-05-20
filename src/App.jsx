@@ -7,13 +7,16 @@ import Header from './components/Header';
 import { AuthProvider } from './context/AuthContext';
 import Challenge from './components/Challenge';
 import Submissions from './components/Submissions';
+import { DataProvider } from './context/DataContext';
 
 function App() {
   return (
     <AuthProvider>
-        <Header />
-        <Challenge/>
-        <Submissions/>
+        <DataProvider>
+            <Header/>
+            <Challenge/>
+            <Submissions/>
+        </DataProvider>
     </AuthProvider>
   );
 }

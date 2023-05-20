@@ -6,3 +6,12 @@ body {
   @apply bg-background-primary font-inter text-content-primary antialiased;
   scroll-behavior: smooth;
 }
+
+p {
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 800;
+}
