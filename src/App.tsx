@@ -9,7 +9,7 @@ import Challenge from './components/Challenge';
 import Submissions from './components/Submissions';
 import { DataProvider } from './context/DataContext';
 
-function App() {
+const App = () => {
   return (
     <AuthProvider>
         <DataProvider>

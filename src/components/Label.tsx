@@ -1,6 +1,10 @@
 import React from 'react';
 
-function Label({ text }) {
+interface LabelProps {
+  text: string;
+}
+
+const Label: React.FC<LabelProps> = ({ text }) => {
 
   return (
     <div style={{"fontSize": "14px"}}
