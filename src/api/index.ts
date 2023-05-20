@@ -19,6 +19,7 @@ export const fetchContestImage = async (limit?: number, offset?: number): Promis
                 id: 1,
                 url: 'https://assets.capitalxtra.com/2013/48/best-hip-hop-album-covers-32-1386002952-view-0.jpg',
                 userId: 1,
+                userTwitterHandle: '@kanyewest',
                 contestId: 1,
                 dimensions: {
                     width: 100,
@@ -29,6 +30,7 @@ export const fetchContestImage = async (limit?: number, offset?: number): Promis
                 id: 2,
                 url: 'https://www.macworld.com/wp-content/uploads/2023/04/bondi-blue-imac-original-1.jpg?quality=50&strip=all',
                 userId: 1,
+                userTwitterHandle: '@steve_jobs',
                 contestId: 1,
                 dimensions: {
                     width: 100,
@@ -39,6 +41,7 @@ export const fetchContestImage = async (limit?: number, offset?: number): Promis
                 id: 3,
                 url: 'https://i.pinimg.com/originals/be/8e/fe/be8efe4eb2084608d61735cfa7ed3dcc.jpg',
                 userId: 1,
+                userTwitterHandle: '@virgilabloh',
                 contestId: 1,
                 dimensions: {
                     width: 100,
@@ -49,6 +52,7 @@ export const fetchContestImage = async (limit?: number, offset?: number): Promis
                 id: 3,
                 url: 'https://hodinkee.imgix.net/uploads/images/1613072769262-jqniggyzvnm-3472eecc47ae3397ea98308d07369ebe/9_1200_1.jpg?ixlib=rails-1.1.0&fm=jpg&q=55&auto=format&usm=12&w=1200&h=630&fit=crop',
                 userId: 1,
+                userTwitterHandle: '@casio',
                 contestId: 1,
                 dimensions: {
                     width: 100,

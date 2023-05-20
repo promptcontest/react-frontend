@@ -10,7 +10,7 @@ const Header = () => {
   const { challengeData } = useContext(DataContext);
 
   return (
-    <header className="p-4 bg-gray-900 flex justify-between items-center">
+    <header className="px-8 py-4 bg-gray-900 flex justify-between items-center">
         <div className='flex items-center justify-center'>
             <p>Today's Challenge</p>
             {challengeData?.endDate && <Countdown until={challengeData?.endDate}/>}

@@ -13,6 +13,7 @@ export interface IChallengeImage {
     id: number;
     url: string;
     userId: number;
+    userTwitterHandle: string;
     challengeId: number;
     dimensions: Dimensions;
     preferenceStats?: Partial<PreferenceStats>;
