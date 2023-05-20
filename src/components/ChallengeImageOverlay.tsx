@@ -1,4 +1,5 @@
 import { IChallengeImage } from "api/types"
+import Voting from "./Voting"
 
 interface OverlayProps {
     img: IChallengeImage
@@ -15,6 +16,9 @@ const ChallengeImageOverlay: React.FC<OverlayProps> = ({ img, rank } ) => {
                 <span className="uppercase">
                     {`rank #${rank}`}
                 </span>
+            </div>
+            <div className="absolute bottom-0 left-0 w-full">
+                <Voting img={img} />
             </div>
         </div>
     )

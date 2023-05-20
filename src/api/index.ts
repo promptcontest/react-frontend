@@ -1,4 +1,4 @@
-import { IChallengeImage, IChallenge } from "./types";
+import { IChallengeImage, IChallenge, IPreferenceStatsUpdateResponse, IPreferenceStatsUpdateRequest } from "./types";
 
 export const fetchContestImage = async (limit?: number, offset?: number): Promise<Array<IChallengeImage>> => {
     // const response = await fetch(`https://api.unsplash.com/contests/images&limit=${limit}&offset=${offset}`)
@@ -24,6 +24,10 @@ export const fetchContestImage = async (limit?: number, offset?: number): Promis
                 dimensions: {
                     width: 100,
                     height: 100
+                },
+                preferenceStats: {
+                  numLikes: 0,
+                  numDislikes: 0,
                 }
               },
               {
@@ -35,6 +39,10 @@ export const fetchContestImage = async (limit?: number, offset?: number): Promis
                 dimensions: {
                     width: 100,
                     height: 100
+                },
+                preferenceStats: {
+                  numLikes: 0,
+                  numDislikes: 0,
                 }
               },
               {
@@ -46,6 +54,10 @@ export const fetchContestImage = async (limit?: number, offset?: number): Promis
                 dimensions: {
                     width: 100,
                     height: 100
+                },
+                preferenceStats: {
+                  numLikes: 0,
+                  numDislikes: 0,
                 }
               },
               {
@@ -57,8 +69,13 @@ export const fetchContestImage = async (limit?: number, offset?: number): Promis
                 dimensions: {
                     width: 100,
                     height: 100
+                },
+                preferenceStats: {
+                  numLikes: 0,
+                  numDislikes: 0,
                 }
               }
+              // the code below is just to make the mocked data more interesting
             ].flatMap(i => Array.from({ length: 3 }, () => i));
             let shuffled = mockedData
                 .map(value => ({ value, sort: Math.random() }))
@@ -93,6 +110,47 @@ export const fetchChallenge = async (): Promise<IChallenge> => {
             const contest: IChallenge = mockedData as IChallenge;
       
             resolve(contest);
+          }, 1000); // Simulated delay
+    })
+}
+
+
+export const updatePreferences = async (image: IChallengeImage, upvote: boolean, userId: string): Promise<IPreferenceStatsUpdateResponse> => {
+    const downvote = !upvote;
+    // const payload = {
+    //     imageId: image.id,
+    //     upvote: upvote,
+    //     downvote: downvote,
+    //     userId: userId
+    // } as  IPreferenceStatsUpdateRequest
+  
+    // const response = await fetch(`https://api..../update-preferences`, {
+    //     method: 'POST',
+    //     body: JSON.stringify(payload),
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     }
+    // })
+    // const data = await response.json();
+    // return data as IPreferenceStatsUpdateResponse;
+
+
+
+    return new Promise<IPreferenceStatsUpdateResponse> ((resolve, reject) => {
+        setTimeout(() => {
+            // Simulated mocked data
+
+            const mockedData: any = {
+                success: true,
+                preferenceStats: {
+                    numLikes: upvote ? image.preferenceStats.numLikes + 1 : image.preferenceStats.numLikes,
+                    numDislikes: downvote ? image.preferenceStats.numDislikes + 1 : image.preferenceStats.numDislikes,
+                }
+            }
+      
+            const prefs: IPreferenceStatsUpdateResponse = mockedData as IPreferenceStatsUpdateResponse;
+      
+            resolve(prefs);
           }, 1000); // Simulated delay
     })
 }

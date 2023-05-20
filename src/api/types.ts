@@ -12,11 +12,11 @@ type PreferenceStats = {
 export interface IChallengeImage {
     id: number;
     url: string;
-    userId: number;
+    userId: string;
     userTwitterHandle: string;
     challengeId: number;
     dimensions: Dimensions;
-    preferenceStats?: Partial<PreferenceStats>;
+    preferenceStats: PreferenceStats;
 }
 
 
@@ -26,4 +26,17 @@ export interface IChallenge {
     description: string;
     startDate: Date;
     endDate: Date;
+}
+
+export interface IPreferenceStatsUpdateResponse {
+    success: boolean;
+    preferenceStats: PreferenceStats;
+    errors?: string[];
+}
+
+export interface IPreferenceStatsUpdateRequest {
+    imageId: number;
+    upvote: boolean;
+    downvote: boolean;
+    userId: string;
 }
