@@ -1,6 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getAuth, TwitterAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,5 +17,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
+const storage = getStorage();
 
-export { app, auth, TwitterAuthProvider, onAuthStateChanged, signInWithPopup, signOut };
+export { app, auth, TwitterAuthProvider, onAuthStateChanged, signInWithPopup, signOut, storage };

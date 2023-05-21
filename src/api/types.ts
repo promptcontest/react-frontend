@@ -10,13 +10,12 @@ type PreferenceStats = {
     
 
 export interface IChallengeImage {
-    id: number;
-    url: string;
-    userId: string;
-    userTwitterHandle: string;
-    challengeId: number;
-    dimensions: Dimensions;
-    preferenceStats: PreferenceStats;
+    image_url: string;
+    user_id: string;
+    twitter_handle: string;
+    rank: number;
+    upvotes: number;
+    downvotes: number;
 }
 
 

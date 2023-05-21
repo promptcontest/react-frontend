@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAuth, onAuthStateChanged, User} from 'firebase/auth';
+import { getAuth, onAuthStateChanged, User, getAdditionalUserInfo} from 'firebase/auth';
 import { app } from '../firebase/firebaseConfig';
 import { IAuthContext, ICtxProps } from './types';
 

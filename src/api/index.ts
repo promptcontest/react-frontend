@@ -1,6 +1,15 @@
 import { IChallengeImage, IChallenge, IPreferenceStatsUpdateResponse, IPreferenceStatsUpdateRequest } from "./types";
 
 export const fetchContestImage = async (limit?: number, offset?: number): Promise<Array<IChallengeImage>> => {
+  
+  const response = await fetch(`https://promptcontest.uc.r.appspot.com/api/v1/images/4Rc5SyuSAJz9WcPunKXd`)
+  const data = await response.json();
+
+
+  const contestImages: IChallengeImage[] = data as IChallengeImage[];
+  console.log(contestImages);
+  return contestImages;
+
     // const response = await fetch(`https://api.unsplash.com/contests/images&limit=${limit}&offset=${offset}`)
     // const data = await response.json();
 
@@ -90,28 +99,37 @@ export const fetchContestImage = async (limit?: number, offset?: number): Promis
 }
 
 export const fetchChallenge = async (): Promise<IChallenge> => {
-    // const response = await fetch(`https://api.unsplash.com/contests`)
-    // const data = await response.json();
-    // return data as IContest;
+    const response = await fetch(`https://promptcontest.uc.r.appspot.com/api/v1/challenge`)
+    const data = await response.json();
+
+    const dataStructure: any = {
+      id: data.id,
+      title: data.name,
+      description: '',
+      startDate: new Date(),
+      endDate: new Date(data.end)
+  }
+
+  return dataStructure as IChallenge;
     
 
-    return new Promise<IChallenge> ((resolve, reject) => {
-        setTimeout(() => {
-            // Simulated mocked data
+    // return new Promise<IChallenge> ((resolve, reject) => {
+    //     setTimeout(() => {
+    //         // Simulated mocked data
 
-            const mockedData: any = {
-                id: 1,
-                title: 'Transparent design',
-                description: 'Description 1',
-                startDate: new Date(),
-                endDate: new Date(new Date().getTime() + 60 * 60 * 24 * 1000)
-            }
+    //         const mockedData: any = {
+    //             id: 1,
+    //             title: 'Transparent design',
+    //             description: 'Description 1',
+    //             startDate: new Date(),
+    //             endDate: new Date(new Date().getTime() + 60 * 60 * 24 * 1000)
+    //         }
       
-            const contest: IChallenge = mockedData as IChallenge;
+    //         const contest: IChallenge = mockedData as IChallenge;
       
-            resolve(contest);
-          }, 1000); // Simulated delay
-    })
+    //         resolve(contest);
+    //       }, 1000); // Simulated delay
+    // })
 }
 
 
@@ -140,17 +158,17 @@ export const updatePreferences = async (image: IChallengeImage, upvote: boolean,
         setTimeout(() => {
             // Simulated mocked data
 
-            const mockedData: any = {
-                success: true,
-                preferenceStats: {
-                    numLikes: upvote ? image.preferenceStats.numLikes + 1 : image.preferenceStats.numLikes,
-                    numDislikes: downvote ? image.preferenceStats.numDislikes + 1 : image.preferenceStats.numDislikes,
-                }
-            }
+            // const mockedData: any = {
+            //     success: true,
+            //     preferenceStats: {
+            //         numLikes: upvote ? image.preferenceStats.numLikes + 1 : image.preferenceStats.numLikes,
+            //         numDislikes: downvote ? image.preferenceStats.numDislikes + 1 : image.preferenceStats.numDislikes,
+            //     }
+            // }
       
-            const prefs: IPreferenceStatsUpdateResponse = mockedData as IPreferenceStatsUpdateResponse;
+            // const prefs: IPreferenceStatsUpdateResponse = mockedData as IPreferenceStatsUpdateResponse;
       
-            resolve(prefs);
+            // resolve(prefs);
           }, 1000); // Simulated delay
     })
 }

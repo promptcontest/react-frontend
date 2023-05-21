@@ -8,6 +8,7 @@ export interface ICtxProps {
 export interface IContext {
     challengeData: IChallenge | null;
     imagesData: IChallengeImage[];
+    fetchData: () => Promise<void>;
 }
 
 export interface IAuthContext {

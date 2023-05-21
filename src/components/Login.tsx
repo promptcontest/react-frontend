@@ -25,8 +25,8 @@ const Login = () => {
   return (
     <div>
       {currentUser ? (
-        <div>
-          <p>Welcome, {currentUser.displayName}</p>
+        <div className='flex flex-col items-end'>
+          <p>{currentUser.displayName}</p>
           <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (

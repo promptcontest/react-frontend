@@ -1,36 +1,36 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { fetchContestImage, fetchChallenge } from 'api';
 import { IChallenge, IChallengeImage } from 'api/types';
 import {IContext, ICtxProps} from './types';
 
 export const DataContext = React.createContext<IContext>({
   challengeData: null,
-  imagesData: []
+  imagesData: [],
+  fetchData: async () => {}, // initialize fetchData with a noop function
 });
 
 export const DataProvider: React.FC<ICtxProps> = ({ children }) => {
-  const [ChallengeData, setChallengeData] = useState<IChallenge | null>(null);
-  const [ImagesData, setImagesData] = useState<IChallengeImage[]>([]);
+  const [challengeData, setChallengeData] = useState<IChallenge | null>(null);
+  const [imagesData, setImagesData] = useState<IChallengeImage[]>([]);
+
+  const fetchData = useCallback(async () => {
+    const challengePromise = fetchChallenge();
+    const imagesPromise = fetchContestImage();
+
+    setChallengeData(await challengePromise);
+    setImagesData(await imagesPromise);
+  }, []);
 
   useEffect(() => {
-    const fetchData = async () => {
-      
-      const challengePromise = fetchChallenge();
-      const imagesPromise = fetchContestImage();
-  
-      setChallengeData(await challengePromise);
-      setImagesData(await imagesPromise);
-    }
-    
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   return (
     <DataContext.Provider
       value={{
-        challengeData: ChallengeData,
-        imagesData: ImagesData
+        challengeData,
+        imagesData,
+        fetchData // provide fetchData as part of the context value
       }}
     >
       {children}

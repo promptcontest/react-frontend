@@ -14,8 +14,8 @@ const Voting = ({ img }: {img: IChallengeImage}) => {
         }
          
         const res = await updatePreferences(img, true, currentUser.uid)
-        console.log(`user ${currentUser.uid} upvoted image ${img.id} - ${JSON.stringify(res)}`)
-        img.preferenceStats = res.preferenceStats
+        // console.log(`user ${currentUser.uid} upvoted image ${img.id} - ${JSON.stringify(res)}`)
+        // img.preferenceStats = res.preferenceStats
     }
     const handleDownvote = async () => {
         // todo console logs to react toast
@@ -24,8 +24,8 @@ const Voting = ({ img }: {img: IChallengeImage}) => {
             return
         }
         const res = await updatePreferences(img, false, currentUser.uid)
-        console.log(`user ${currentUser.uid} downvoted image ${img.id} - ${JSON.stringify(res)}`)
-        img.preferenceStats = res.preferenceStats
+        // console.log(`user ${currentUser.uid} downvoted image ${img.id} - ${JSON.stringify(res)}`)
+        // img.preferenceStats = res.preferenceStats
     }
 
     return (
